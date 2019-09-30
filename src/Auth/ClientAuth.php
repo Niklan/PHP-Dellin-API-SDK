@@ -2,6 +2,8 @@
 
 namespace Drupal\dellin_api\Auth;
 
+use Drupal\dellin_api\Api\Auth\Login;
+use Drupal\dellin_api\Client\HttpClient;
 use Drupal\dellin_api\Session\MemoryStorage;
 use Drupal\dellin_api\Session\StorageInterface;
 use Drupal\delling_api\Auth\AuthBase;
@@ -57,6 +59,24 @@ final class ClientAuth extends AuthBase {
       $storage = new MemoryStorage();
     }
     $this->sessionIdStorage = $storage;
+
+    $this->init();
+  }
+
+  protected function init() {
+    if ($this->getSessionId()) {
+      return $this->getSessionId();
+    }
+
+    try {
+      $auth = new PublicAuth($this->getAppkey());
+      $client = new HttpClient($auth);
+      $login = new Login($client);
+      $result = $login->execute();
+    }
+    catch (\Exception $e) {
+      // @todo throw new custom exception.
+    }
   }
 
   public function getLogin(): string {
