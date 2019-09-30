@@ -19,7 +19,13 @@ final class Login extends ApiBase implements PublicApiInterface {
    * {@inheritdoc}
    */
   protected function getRequestParams(): array {
-    // @todo
+    $client = $this->getClient();
+    $auth = $client->getAuth();
+
+    return [
+      'login' => $auth->getLogin(),
+      'password' => $auth->getPassword(),
+    ];
   }
 
 }

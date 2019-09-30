@@ -34,7 +34,7 @@ final class ClientAuth extends AuthBase {
    *
    * @var \Drupal\dellin_api\Session\StorageInterface
    */
-  protected $storage;
+  protected $sessionIdStorage;
 
   /**
    * Constructs a new KeyLoginPassword object.
@@ -56,11 +56,23 @@ final class ClientAuth extends AuthBase {
     if (!$storage instanceof StorageInterface) {
       $storage = new MemoryStorage();
     }
-    $this->storage = $storage;
+    $this->sessionIdStorage = $storage;
+  }
+
+  public function getLogin(): string {
+    return $this->login;
+  }
+
+  public function getPassword(): string {
+    return $this->password;
+  }
+
+  public function setSessionId(string $session_id): void {
+    $this->sessionIdStorage->set($session_id);
   }
 
   public function getSessionId(): string {
-
+    return $this->sessionIdStorage->get();
   }
 
 }

@@ -2,6 +2,8 @@
 
 namespace Drupal\dellin_api\Api;
 
+use Drupal\Component\Utility\NestedArray;
+use Drupal\dellin_api\Auth\AuthInterface;
 use Drupal\dellin_api\Client\ClientInterface;
 
 /**
@@ -41,7 +43,44 @@ abstract class ApiBase {
    */
   public function execute() {
     $client = $this->getClient();
-    return $client->request($this->getEndpoint(), $this->getRequestParams());
+    $params = NestedArray::mergeDeepArray($this->getAuthParams(), $this->getRequestParams());
+
+    return $client->request($this->getEndpoint(), $params);
+  }
+
+  /**
+   * Gets client.
+   *
+   * @return \Drupal\dellin_api\Client\ClientInterface
+   *   The client.
+   */
+  protected function getClient(): ClientInterface {
+    return $this->client;
+  }
+
+  /**
+   * Gets auth params.
+   *
+   * @return array
+   *   The auth params.
+   */
+  protected function getAuthParams(): array {
+    $client = $this->getClient();
+    $auth = $client->getAuth();
+
+    if (self::class instanceof PublicApiInterface && $auth instanceof AuthInterface) {
+      return [
+        'appkey' => $auth->getAppkey(),
+      ];
+    }
+    elseif (self::class instanceof ClientApiInterface && $auth instanceof ClientInterface) {
+      return [
+        'appkey' => $auth->getAppkey(),
+        'sessionID' => $auth->getSessionId(),
+      ];
+    }
+
+    // @todo throw exception.
   }
 
   /**
@@ -62,16 +101,6 @@ abstract class ApiBase {
    */
   protected function getEndpoint(): ?string {
     return $this->endpoint;
-  }
-
-  /**
-   * Gets client.
-   *
-   * @return \Drupal\dellin_api\Client\ClientInterface
-   *   The client.
-   */
-  protected function getClient(): ClientInterface {
-    return $this->client;
   }
 
 }
