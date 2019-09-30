@@ -38,6 +38,21 @@ CONFIGURATION
     3. Visit the external documentation page for more details.
 
 
+Roadmap
+-----------
+
+The roadmap is to provide most needed API.
+
+- **Authorization**
+  - [ ] Login
+  - [ ] Logout
+  - [ ] Session info
+  - [ ] Counteragents
+- **Calculation**
+  - [ ] Calculator
+  - [ ] Calculator SF
+- Other API support will be added later.
+
 MAINTAINERS
 -----------
 
