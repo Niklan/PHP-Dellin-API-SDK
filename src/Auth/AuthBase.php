@@ -1,8 +1,6 @@
 <?php
 
-namespace Drupal\delling_api\Auth;
-
-use Drupal\dellin_api\Auth\AuthInterface;
+namespace Drupal\dellin_api\Auth;
 
 /**
  * Provides authentication base.

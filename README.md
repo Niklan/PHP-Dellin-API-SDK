@@ -24,7 +24,7 @@ INSTALLATION
 
 It's recommended to install module via composer.
 
- * Install the delling_api module as you would normally install a contributed
+ * Install the dellin_api module as you would normally install a contributed
    Drupal module. Visit https://www.drupal.org/node/1897420 for further
    information.
 
@@ -41,7 +41,9 @@ CONFIGURATION
 Roadmap
 -----------
 
-The roadmap is to provide most needed API.
+By default, all API supported by Client, where you can make an any request you wish by passing raw URI and params.
+
+Some API has object wrappers to make request easy and semantic. The list of available and desired wrappers:
 
 - **Authorization**
   - [ ] Login
@@ -51,7 +53,8 @@ The roadmap is to provide most needed API.
 - **Calculation**
   - [ ] Calculator
   - [ ] Calculator SF
-- Other API support will be added later.
+- **Catalogs**
+  - [x] City search
 
 MAINTAINERS
 -----------

@@ -3,7 +3,10 @@
 namespace Drupal\dellin_api\Client;
 
 use Drupal\dellin_api\Auth\AuthInterface;
+use Drupal\dellin_api\Response\Response;
+use Drupal\dellin_api\Response\ResponseInterface;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 /**
  * Defines object to make an HTTP request to an API.
@@ -27,8 +30,8 @@ class HttpClient extends ClientBase {
   /**
    * {@inheritdoc}
    */
-  public function __construct(AuthInterface $auth, string $format = 'json') {
-    parent::__construct($auth, $format);
+  public function __construct(AuthInterface $auth) {
+    parent::__construct($auth);
 
     $this->client = new Client();
   }
@@ -41,13 +44,47 @@ class HttpClient extends ClientBase {
    * @param array $params
    *   The API params send with request.
    *
-   * @return \Drupal\smsru\Response\ResponseInterface
-   *   The response result.
+   * @return \Drupal\dellin_api\Response\ResponseInterface
+   *   An API response.
    *
    * @throws \GuzzleHttp\Exception\GuzzleException
    */
-  public function request(string $endpoint, array $params = []) {
-    // @todo do request.
+  public function request(string $endpoint, array $params = []): ResponseInterface {
+    $uri = self::BASE_URI . $endpoint . '.' . $this->format;
+
+    switch ($this->format) {
+      case 'json':
+      default:
+        return $this->doJsonRequest($uri, $params);
+    }
+  }
+
+  /**
+   * Makes request with JSON type.
+   *
+   * @param string $uri
+   *   The API uri.
+   * @param array $params
+   *   The request params.
+   *
+   * @return \Drupal\dellin_api\Response\Response
+   *   An API response.
+   *
+   * @throws \GuzzleHttp\Exception\GuzzleException
+   */
+  protected function doJsonRequest(string $uri, array $params) {
+    try {
+      $guzzle_response = $this->client->request('POST', $uri, [
+        'json' => $params,
+      ]);
+    }
+    catch (RequestException $exception) {
+      $guzzle_response = $exception->getResponse();
+    }
+
+    $contents = $guzzle_response->getBody()->getContents();
+
+    return new Response($guzzle_response, $contents, json_decode($contents, TRUE));
   }
 
 }

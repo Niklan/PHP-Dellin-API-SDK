@@ -3,6 +3,7 @@
 namespace Drupal\dellin_api\Client;
 
 use Drupal\dellin_api\Auth\AuthInterface;
+use Drupal\dellin_api\Response\ResponseInterface;
 
 /**
  * Defines an interface to make requests to the API endpoints.
@@ -17,7 +18,8 @@ interface ClientInterface {
    * @param array $params
    *   The API params send with request.
    *
-   * @return
+   * @return \Drupal\dellin_api\Response\ResponseInterface
+   *   An API response.
    */
   public function request(string $endpoint, array $params = []): ResponseInterface;
 

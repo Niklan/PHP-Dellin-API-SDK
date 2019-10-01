@@ -2,8 +2,6 @@
 
 namespace Drupal\dellin_api\Auth;
 
-use Drupal\delling_api\Auth\AuthBase;
-
 /**
  * Defines public authentication method.
  *

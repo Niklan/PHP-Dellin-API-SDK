@@ -3,12 +3,11 @@
 namespace Drupal\dellin_api\Api\Auth;
 
 use Drupal\dellin_api\Api\ApiBase;
-use Drupal\dellin_api\Api\PublicApiInterface;
 
 /**
  * Defines login API request.
  */
-final class Login extends ApiBase implements PublicApiInterface {
+final class Login extends ApiBase {
 
   /**
    * {@inheritdoc}
