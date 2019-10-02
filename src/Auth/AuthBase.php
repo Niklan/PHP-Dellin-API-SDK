@@ -21,4 +21,13 @@ abstract class AuthBase implements AuthInterface {
     return $this->appkey;
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function getRequestParams(): array {
+    return [
+      'appkey' => $this->getAppkey(),
+    ];
+  }
+
 }

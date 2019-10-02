@@ -2,7 +2,9 @@
 
 namespace Drupal\dellin_api\Client;
 
+use Drupal\Component\Utility\NestedArray;
 use Drupal\dellin_api\Auth\AuthInterface;
+use Drupal\dellin_api\Request\RequestInterface;
 use Drupal\dellin_api\Response\Response;
 use Drupal\dellin_api\Response\ResponseInterface;
 use GuzzleHttp\Client;
@@ -51,12 +53,21 @@ class HttpClient extends ClientBase {
    */
   public function request(string $endpoint, array $params = []): ResponseInterface {
     $uri = self::BASE_URI . $endpoint . '.' . $this->format;
+    // Add auth params.
+    $params = NestedArray::mergeDeep($this->getAuth()->getRequestParams(), $params);
 
     switch ($this->format) {
       case 'json':
       default:
         return $this->doJsonRequest($uri, $params);
     }
+  }
+
+  /**
+   * {@ineritdoc}
+   */
+  public function execute(RequestInterface $request): ResponseInterface {
+    return $this->request($request->getEndpoint(), $request->getRequestParams());
   }
 
   /**

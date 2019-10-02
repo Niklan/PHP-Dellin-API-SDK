@@ -15,4 +15,12 @@ interface AuthInterface {
    */
   public function getAppkey(): string;
 
+  /**
+   * Gets request params.
+   *
+   * @return array
+   *   The request params.
+   */
+  public function getRequestParams(): array;
+
 }

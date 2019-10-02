@@ -9,7 +9,7 @@ namespace Drupal\dellin_api\Auth;
  *
  * @see https://dev.dellin.ru/api/
  */
-final class PublicAuth extends AuthBase {
+final class AppkeyAuth extends AuthBase {
 
   /**
    * Constructs a new PublicAuth object.

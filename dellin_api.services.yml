@@ -1,4 +1,0 @@
-services:
-  dellin_api.state_session_storage:
-    class: Drupal\dellin_api\Session\StateStorage
-    arguments: ['@state']
