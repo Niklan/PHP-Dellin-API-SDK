@@ -58,6 +58,20 @@ class Pickup extends RequestBase {
   }
 
   /**
+   * Sets arrival door status.
+   *
+   * @param bool $arrival_door
+   *   The arrival door status.
+   *
+   * @return $this
+   */
+  public function setArrivalDoor(bool $arrival_door): Pickup {
+    $this->requestParams['arrivalDoor'] = $arrival_door;
+
+    return $this;
+  }
+
+  /**
    * Sets outsized cargo volume.
    *
    * @param float $oversized_volume
