@@ -1,12 +1,12 @@
 <?php
 
-namespace Drupal\dellin_api\Client;
+namespace Niklan\dellin_api\Client;
 
 use Drupal\Component\Utility\NestedArray;
-use Drupal\dellin_api\Auth\AuthInterface;
-use Drupal\dellin_api\Request\RequestInterface;
-use Drupal\dellin_api\Response\Response;
-use Drupal\dellin_api\Response\ResponseInterface;
+use Niklan\dellin_api\Auth\AuthInterface;
+use Niklan\dellin_api\Request\RequestInterface;
+use Niklan\dellin_api\Response\Response;
+use Niklan\dellin_api\Response\ResponseInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
@@ -46,7 +46,7 @@ class HttpClient extends ClientBase {
    * @param array $params
    *   The API params send with request.
    *
-   * @return \Drupal\dellin_api\Response\ResponseInterface
+   * @return \Niklan\dellin_api\Response\ResponseInterface
    *   An API response.
    *
    * @throws \GuzzleHttp\Exception\GuzzleException
@@ -78,7 +78,7 @@ class HttpClient extends ClientBase {
    * @param array $params
    *   The request params.
    *
-   * @return \Drupal\dellin_api\Response\Response
+   * @return \Niklan\dellin_api\Response\Response
    *   An API response.
    *
    * @throws \GuzzleHttp\Exception\GuzzleException

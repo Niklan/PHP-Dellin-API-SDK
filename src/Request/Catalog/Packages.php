@@ -1,8 +1,8 @@
 <?php
 
-namespace Drupal\dellin_api\Request\Catalog;
+namespace Niklan\dellin_api\Request\Catalog;
 
-use Drupal\dellin_api\Request\RequestBase;
+use Niklan\dellin_api\Request\RequestBase;
 
 /**
  * Provides request for list of available packages.

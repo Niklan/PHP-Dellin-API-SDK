@@ -1,8 +1,8 @@
 <?php
 
-namespace Drupal\dellin_api\Client;
+namespace Niklan\dellin_api\Client;
 
-use Drupal\dellin_api\Auth\AuthInterface;
+use Niklan\dellin_api\Auth\AuthInterface;
 
 /**
  * Defines base client.
@@ -12,7 +12,7 @@ abstract class ClientBase implements ClientInterface {
   /**
    * The client authentication credits.
    *
-   * @var \Drupal\dellin_api\Auth\AuthInterface
+   * @var \Niklan\dellin_api\Auth\AuthInterface
    */
   protected $auth;
 
@@ -28,7 +28,7 @@ abstract class ClientBase implements ClientInterface {
   /**
    * Constructs a new ClientBase object.
    *
-   * @param \Drupal\dellin_api\Auth\AuthInterface $auth
+   * @param \Niklan\dellin_api\Auth\AuthInterface $auth
    *   The authentication credits.
    * @param string $format
    *   The format used for requests and responses by API.

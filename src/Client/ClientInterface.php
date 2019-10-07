@@ -1,10 +1,10 @@
 <?php
 
-namespace Drupal\dellin_api\Client;
+namespace Niklan\dellin_api\Client;
 
-use Drupal\dellin_api\Auth\AuthInterface;
-use Drupal\dellin_api\Request\RequestInterface;
-use Drupal\dellin_api\Response\ResponseInterface;
+use Niklan\dellin_api\Auth\AuthInterface;
+use Niklan\dellin_api\Request\RequestInterface;
+use Niklan\dellin_api\Response\ResponseInterface;
 
 /**
  * Defines an interface to make requests to the API endpoints.
@@ -19,7 +19,7 @@ interface ClientInterface {
    * @param array $params
    *   The API params send with request.
    *
-   * @return \Drupal\dellin_api\Response\ResponseInterface
+   * @return \Niklan\dellin_api\Response\ResponseInterface
    *   An API response.
    */
   public function request(string $endpoint, array $params = []): ResponseInterface;
@@ -27,10 +27,10 @@ interface ClientInterface {
   /**
    * Executes request from wrapper.
    *
-   * @param \Drupal\dellin_api\Request\RequestInterface $request
+   * @param \Niklan\dellin_api\Request\RequestInterface $request
    *   The request.
    *
-   * @return \Drupal\dellin_api\Response\ResponseInterface
+   * @return \Niklan\dellin_api\Response\ResponseInterface
    *   An API response.
    */
   public function execute(RequestInterface $request): ResponseInterface;
@@ -38,7 +38,7 @@ interface ClientInterface {
   /**
    * Gets client authentication credits.
    *
-   * @return \Drupal\dellin_api\Auth\AuthInterface
+   * @return \Niklan\dellin_api\Auth\AuthInterface
    *   The authentication credits.
    */
   public function getAuth(): AuthInterface;

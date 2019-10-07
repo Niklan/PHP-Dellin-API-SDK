@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dellin_api\Request;
+namespace Niklan\dellin_api\Request;
 
 /**
  * Defines a base object representing an API request.
