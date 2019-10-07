@@ -2,7 +2,6 @@
 
 namespace Niklan\DellinApi\Client;
 
-use Drupal\Component\Utility\NestedArray;
 use Niklan\DellinApi\Auth\AuthInterface;
 use Niklan\DellinApi\Request\RequestInterface;
 use Niklan\DellinApi\Response\Response;
@@ -39,6 +38,13 @@ class HttpClient extends ClientBase {
   }
 
   /**
+   * {@ineritdoc}
+   */
+  public function execute(RequestInterface $request): ResponseInterface {
+    return $this->request($request->getEndpoint(), $request->getRequestParams());
+  }
+
+  /**
    * Makes request to API.
    *
    * @param string $endpoint
@@ -54,20 +60,13 @@ class HttpClient extends ClientBase {
   public function request(string $endpoint, array $params = []): ResponseInterface {
     $uri = self::BASE_URI . $endpoint . '.' . $this->format;
     // Add auth params.
-    $params = NestedArray::mergeDeep($this->getAuth()->getRequestParams(), $params);
+    $params = array_merge($this->getAuth()->getRequestParams(), $params);
 
     switch ($this->format) {
       case 'json':
       default:
         return $this->doJsonRequest($uri, $params);
     }
-  }
-
-  /**
-   * {@ineritdoc}
-   */
-  public function execute(RequestInterface $request): ResponseInterface {
-    return $this->request($request->getEndpoint(), $request->getRequestParams());
   }
 
   /**
