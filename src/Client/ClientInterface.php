@@ -1,10 +1,10 @@
 <?php
 
-namespace Niklan\dellin_api\Client;
+namespace Niklan\DellinApi\Client;
 
-use Niklan\dellin_api\Auth\AuthInterface;
-use Niklan\dellin_api\Request\RequestInterface;
-use Niklan\dellin_api\Response\ResponseInterface;
+use Niklan\DellinApi\Auth\AuthInterface;
+use Niklan\DellinApi\Request\RequestInterface;
+use Niklan\DellinApi\Response\ResponseInterface;
 
 /**
  * Defines an interface to make requests to the API endpoints.
@@ -19,7 +19,7 @@ interface ClientInterface {
    * @param array $params
    *   The API params send with request.
    *
-   * @return \Niklan\dellin_api\Response\ResponseInterface
+   * @return \Niklan\DellinApi\Response\ResponseInterface
    *   An API response.
    */
   public function request(string $endpoint, array $params = []): ResponseInterface;
@@ -27,10 +27,10 @@ interface ClientInterface {
   /**
    * Executes request from wrapper.
    *
-   * @param \Niklan\dellin_api\Request\RequestInterface $request
+   * @param \Niklan\DellinApi\Request\RequestInterface $request
    *   The request.
    *
-   * @return \Niklan\dellin_api\Response\ResponseInterface
+   * @return \Niklan\DellinApi\Response\ResponseInterface
    *   An API response.
    */
   public function execute(RequestInterface $request): ResponseInterface;
@@ -38,7 +38,7 @@ interface ClientInterface {
   /**
    * Gets client authentication credits.
    *
-   * @return \Niklan\dellin_api\Auth\AuthInterface
+   * @return \Niklan\DellinApi\Auth\AuthInterface
    *   The authentication credits.
    */
   public function getAuth(): AuthInterface;

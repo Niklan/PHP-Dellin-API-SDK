@@ -1,6 +1,6 @@
 <?php
 
-namespace Niklan\dellin_api\Auth;
+namespace Niklan\DellinApi\Auth;
 
 /**
  * Provides authentication base.

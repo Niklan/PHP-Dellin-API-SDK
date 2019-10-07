@@ -1,6 +1,6 @@
 <?php
 
-namespace Niklan\dellin_api\Response;
+namespace Niklan\DellinApi\Response;
 
 use GuzzleHttp\Psr7\Response;
 

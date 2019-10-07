@@ -1,6 +1,6 @@
 <?php
 
-namespace Niklan\dellin_api\Auth;
+namespace Niklan\DellinApi\Auth;
 
 /**
  * Defines an interface to representing authentication method.

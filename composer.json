@@ -1,20 +1,21 @@
 {
-  "name":"niklan/dellin-api",
-  "description": "PHP SDK for Dellin API.",
-  "authors": [
-    {
-      "name": "Nikita Malyshev (Niklan)",
-      "email": "hello@niklan.net",
-      "homepage": "https://niklan.net",
-      "role": "Maintainer"
+    "name": "niklan/dellin-api",
+    "description": "PHP SDK for Dellin API.",
+    "authors": [
+        {
+            "name": "Nikita Malyshev (Niklan)",
+            "email": "hello@niklan.net",
+            "homepage": "https://niklan.net",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "php-http/httpplug": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Niklan\\DellinApi\\": "src/"
+        }
     }
-  ],
-  "require": {
-    "php": ">=7.2.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Niklan\\dellin_api\\": "src/"
-    }
-  }
 }

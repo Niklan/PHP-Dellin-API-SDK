@@ -1,8 +1,8 @@
 <?php
 
-namespace Niklan\dellin_api\Client;
+namespace Niklan\DellinApi\Client;
 
-use Niklan\dellin_api\Auth\AuthInterface;
+use Niklan\DellinApi\Auth\AuthInterface;
 
 /**
  * Defines base client.
@@ -12,7 +12,7 @@ abstract class ClientBase implements ClientInterface {
   /**
    * The client authentication credits.
    *
-   * @var \Niklan\dellin_api\Auth\AuthInterface
+   * @var \Niklan\DellinApi\Auth\AuthInterface
    */
   protected $auth;
 
@@ -28,7 +28,7 @@ abstract class ClientBase implements ClientInterface {
   /**
    * Constructs a new ClientBase object.
    *
-   * @param \Niklan\dellin_api\Auth\AuthInterface $auth
+   * @param \Niklan\DellinApi\Auth\AuthInterface $auth
    *   The authentication credits.
    * @param string $format
    *   The format used for requests and responses by API.

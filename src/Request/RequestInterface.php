@@ -1,6 +1,6 @@
 <?php
 
-namespace Niklan\dellin_api\Request;
+namespace Niklan\DellinApi\Request;
 
 /**
  * Defines interface for API requests wrapper objects.

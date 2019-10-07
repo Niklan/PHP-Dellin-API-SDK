@@ -1,8 +1,8 @@
 <?php
 
-namespace Niklan\dellin_api\Request\Auth;
+namespace Niklan\DellinApi\Request\Auth;
 
-use Niklan\dellin_api\Request\RequestBase;
+use Niklan\DellinApi\Request\RequestBase;
 
 /**
  * Defines login API request.

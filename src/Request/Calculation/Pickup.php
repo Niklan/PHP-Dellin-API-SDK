@@ -1,8 +1,8 @@
 <?php
 
-namespace Niklan\dellin_api\Request\Calculation;
+namespace Niklan\DellinApi\Request\Calculation;
 
-use Niklan\dellin_api\Request\RequestBase;
+use Niklan\DellinApi\Request\RequestBase;
 
 /**
  * Defines pickup API request.

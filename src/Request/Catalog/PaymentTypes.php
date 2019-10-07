@@ -1,8 +1,8 @@
 <?php
 
-namespace Niklan\dellin_api\Request\Catalog;
+namespace Niklan\DellinApi\Request\Catalog;
 
-use Niklan\dellin_api\Request\RequestBase;
+use Niklan\DellinApi\Request\RequestBase;
 
 /**
  * Provides request for list of available payment types.
