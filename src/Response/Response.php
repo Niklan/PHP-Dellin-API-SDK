@@ -71,7 +71,10 @@ class Response implements ResponseInterface {
    * {@inheritdoc}
    */
   public function isSuccess(): bool {
-    return $this->response->getStatusCode() == 200;
+    $is_valid_status = $this->response->getStatusCode() == 200;
+    $is_has_no_errors = empty($this->getResult()['errors']);
+
+    return $is_valid_status && $is_has_no_errors;
   }
 
 }
